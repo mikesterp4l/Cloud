@@ -1,0 +1,52 @@
+#!/bin/bash
+
+#making a research directory
+mkdir ~/research 2> /dev/null
+
+#Title & date
+echo "A Quick System Audit Script"
+
+#Today's date
+date
+
+#The machine's type
+echo "Machine Type Info"
+echo "MACHTYPE"
+
+#Uname
+echo -e "Uname info: $(uname -a) \n"
+
+#Machine's IP Address
+echo -e "IP Info: $(ip addr | head -9 | tail -1) \n"
+
+#Hostname
+echo "Hostname: $(hostname -s) "
+
+#DNS Info
+echo "DNS Servers: "
+cat /etc/resolv.conf
+
+#Memory Info
+echo "Memory Info"
+free
+
+#CPU Info
+echo -e "\nCPU Info"
+lscpu | grep CPU
+
+#Disk Usage
+echo -e "\nDisk Usage"
+df -H | head -2
+
+#Currently logged on users
+echo -e "\nWho is logged on: $(who -a) \n" 
+
+#Finding files that are 777
+echo -e "\n777 files:" >> ~/research/sys_info.txt
+find / -type f -perm 777 >> ~/research/sys_info.txt
+
+#Top 10 Processess
+echo -e"\nTop 10 Processess" >> ~/research/sys_info.txt
+ps -aux -m | awk -F {'print $1, $2, $3, $4, $11'} | head -11 >> ~/research/sys_info.txt
+
+
