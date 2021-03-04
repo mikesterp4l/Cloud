@@ -6,7 +6,7 @@ https://github.com/mikesterp4l/Cloud/blob/main/Diagrams/With%20ELK%20Red-Team%20
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the install-elk.yml file may be used to install only certain pieces of it, such as Filebeat.
 
-  - install-elk.yml https://github.com/mikesterp4l/Cloud/blob/main/Ansible/ELK.yml
+  - install-elk.yml https://github.com/mikesterp4l/Cloud/blob/main/Ansible/Install-ELK.yml
 
 This document contains the following details:
 - Description of the Topology
